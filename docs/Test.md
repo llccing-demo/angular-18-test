@@ -90,3 +90,43 @@ Using "async" and "fixture.whenStable"
 Using "fakeAsync" and "tick"
 
 Using "done: DoneFn"
+
+
+### Code coverage
+
+Code coverage is a feature provided by the Jasmine framework that shows how much code is covered in unit testing.
+
+Line coverage
+It measures the total percentage of lines which is covered by unit test cases.
+
+Function coverage
+Measures the percentage of functions covered by test cases. Useful for detecting unused functions.
+
+Branch coverage
+Measures the percentage of branches executed by a test cases.
+
+```shell
+=============================== Coverage summary ===============================
+Statements   : 88.23% ( 15/17 )
+Branches     : 100% ( 0/0 )
+Functions    : 88.88% ( 8/9 )
+Lines        : 86.66% ( 13/15 )
+```
+
+### Best Practices for Writing Effective Test Cases
+
+- Unitwise testing
+- Expect pure test output
+- Write readable test cases
+- Don't write business logic inside test cases
+- Test cases should be up to date
+- It should meet the standard code coverage percentage
+
+### In a Nutshell
+
+Unit testing in Angular is a very important practice for ensuring the dependable and estimated outcomes of Angular applications. By using the power of Jasmine and Karma, you can write multiple test cases, to test angular components and structures independently of each other, configure the testing environment with TestBed, and leverage mocking and spying to achieve independent and isolated execution.
+
+With karma and jasmine with best practices in hand, you can definitely validate your code’s functionality, enhance its testing workflow, and build robust Angular applications that meet AAA practices. Explore the realm of unit testing using Jasmine and Karma to unlock the complete capabilities of your Angular apps and projects.
+
+The origin article is [here](https://www.angularminds.com/blog/writing-your-first-angular-unit-test-step-by-step-tutorial)
+
