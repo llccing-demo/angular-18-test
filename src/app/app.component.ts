@@ -16,6 +16,7 @@ export class AppComponent {
 
   title = 'angular-18-test';
   products: Product[] = [];
+  loginUser = false;
 
   getTittle() {
     return this.title;
@@ -23,5 +24,15 @@ export class AppComponent {
 
   getProducts() {
     this.productService.getProducts().subscribe(products => this.products = products);
+  }
+
+  async isLogin() {
+    const isLogin = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 1000);
+    }) as boolean;
+
+    this.loginUser = isLogin;
   }
 }

@@ -90,4 +90,40 @@ describe('AppComponent', () => {
     let restult = app.getTittle();
     expect(restult).toEqual('angular-18-test');
   })
+
+
+  // Test case for isLogin function
+  it('should test isLogin function using async/await', async () => {
+
+    expect(component.loginUser).toEqual(false)
+
+    await component.isLogin();
+
+    expect(component.loginUser).toEqual(true)
+  });
+
+
+  // fakeAsync
+  it('should test isLogin function using fakeAsync', fakeAsync(() => {
+    expect(component.loginUser).toEqual(false)
+
+    component.isLogin();
+
+    tick(1000);
+
+    expect(component.loginUser).toEqual(true)
+  }));
+
+
+  // test case for isLogin
+  it('should test isLogin function using done', (done: DoneFn) => {
+    expect(component.loginUser).toEqual(false)
+
+    component.isLogin();
+
+    setTimeout(() => {
+      expect(component.loginUser).toEqual(true)
+      done();
+    }, 1000);
+  })
 });
