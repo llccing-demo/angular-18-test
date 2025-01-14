@@ -29,7 +29,8 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
       providers: [
-        { provide: ProductsService, useClass: MockProductsService }
+        ProductsService 
+        // { provide: ProductsService, useClass: MockProductsService }
       ]
     }).compileComponents();
   });
@@ -42,12 +43,25 @@ describe('AppComponent', () => {
   });
 
   it('should retrieve products', fakeAsync(() => {
-    component.getProducts();
-    tick();
-    expect(component.products).toEqual([
+
+    // Create a spy on the getProducts method of the ProductService
+    const mockProducts = [
       { id: 1, name: 'Product 1' },
       { id: 2, name: 'Product 2' },
-    ]);
+    ];
+    const productServiceSpy = spyOn(productService, 'getProducts').and.returnValue(of(mockProducts));
+
+    // Call the getProducts method of the component 
+    component.getProducts();
+
+    // Use tick() to simulate the passage of time until all asynchronous operations are completed
+    tick();
+
+    // Now you can assert that the component's products property has been updated
+    expect(component.products).toEqual(mockProducts);
+
+    // Verify that the getProducts method of the ProductService was called
+    expect(productServiceSpy).toHaveBeenCalled();
   }))
 
 

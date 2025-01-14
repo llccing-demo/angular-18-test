@@ -65,4 +65,28 @@ fakeAsync
 
 tick
 
-### 
+### Spy
+
+Spy is a feature of Jasmine that allows you to take a control of class, function, or object and modify the behavior in such a way as you want.
+
+when use Spy, we don't need to use mockProductService.
+
+#### Why should we use Jasmine Spy Object in Angular Unit Testing?
+
+Answer: Because when you create spy , you get the power to do below tasks in unit tests:
+
+You can check whether the function has been called or not (by using `expect(component.method).toHaveBeenCalled())
+
+You can even override the actual implementation (written inside service.ts) and return some dummy data to create several scenarios for unit test cases.
+
+You check this article where I used Stubs unlike what you can see in angular guide. I used Stubs because I can reuse it other other-component.spec.ts which uses the same service, by simply injecting in providers using useClass. Take your time and see how I used .toHaveBeenCalled() [ to understand my point 1 ] , and also how I used .returnValue() to recreate the error behavior of service.
+
+### Testing asynchronous code
+
+Angular provides three ways to test asynchronous code
+
+Using "async" and "fixture.whenStable"
+
+Using "fakeAsync" and "tick"
+
+Using "done: DoneFn"
